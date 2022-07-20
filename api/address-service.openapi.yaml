@@ -77,13 +77,10 @@ paths:
 components:
   schemas:
     address:
-      type: object
-      properties:
-          PEID:
-            type: integer
-            nullable: false
       allOf:
+        - $ref: '#/components/schemas/id'
         - $ref: '#/components/schemas/addressInfo'
+        - type: object
     addressInfo:
       type: object
       properties:
@@ -101,6 +98,15 @@ components:
           example: Düsseldorf
     addresses:
       type: array
-      allOf:
+      items:
+        allOf:
+        - $ref: '#/components/schemas/id'
         - $ref: '#/components/schemas/address'
-      # todo: google how to use object address
+    id:
+      properties:
+        ADID:
+          type: integer
+          nullable: false
+          example: 0
+      required:
+        - ADID

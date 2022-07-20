@@ -8,16 +8,11 @@ servers:
   - url: http://jonnef-api.com
 paths:
   /address:
-    description: Person Resource
+    description: Address Resource
     get:
-      description: Operation to Fetch Persons
-      parameters:
-        - in: query
-          name: username
-          required: true
-          schema:
-            type: string
-            example: jonnef
+      tags:
+      - Address
+      description: Get a list of addresses
       responses:
         200:
           description: Success!
@@ -26,6 +21,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/addresses'
     post:
+    # todo: add new component schema without id
+      tags:
+      - Address
       description: Add a new Person
       requestBody:
         content:
@@ -35,9 +33,11 @@ paths:
       responses:
         201:
           description: Successfully added
-  /address{adid}:
+  /address/{adid}:
     description: Address methods with path parameter adid
     get:
+      tags:
+      - Address
       parameters:
         - in: path
           name: id
@@ -52,6 +52,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/addresses'
     delete:
+      tags:
+      - Address
       description: Delete Address by ADID
       parameters:
         - in: path
@@ -63,6 +65,9 @@ paths:
         200:
           description: Successfully deleted the Address
     patch:
+    # todo: change to requestbody, use address schema without id (look post)
+      tags:
+      - Address
       parameters:
         - in: path
           name: ADID
@@ -110,20 +115,5 @@ components:
           example: Düsseldorf
     addresses:
       type: array
-      items:
-        properties:
-          ADID:
-            type: integer
-            nullable: false
-          street:
-            type: string
-            example: Duisburgerstraße
-          houseNumber:
-            type: string
-            example: 145
-          postCode:
-            type: integer
-            example: 40477
-          city:
-            type: string
-            example: Düsseldorf
+      format: address
+      # todo: google how to use object address

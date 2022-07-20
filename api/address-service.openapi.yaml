@@ -21,7 +21,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/addresses'
     post:
-    # todo: add new component schema without id
       tags:
       - Address
       description: Add a new Person
@@ -29,7 +28,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/address'
+              $ref: '#/components/schemas/addressInfo'
       responses:
         201:
           description: Successfully added
@@ -65,31 +64,13 @@ paths:
         200:
           description: Successfully deleted the Address
     patch:
-    # todo: change to requestbody, use address schema without id (look post)
       tags:
       - Address
-      parameters:
-        - in: path
-          name: ADID
-          required: true
-          schema:
-            type: integer
-        - in: query
-          name: street
-          schema:
-            type: string
-        - in: query
-          name: houseNumber
-          schema:
-            type: string
-        - in: query
-          name: postCode
-          schema:
-            type: integer
-        - in: query
-          name: city
-          schema:
-            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addressInfo'
       responses:
         200:
           description: "Successfully changed data of address with adid: {adid}"
@@ -98,9 +79,14 @@ components:
     address:
       type: object
       properties:
-        ADID:
-          type: integer
-          nullable: false
+          PEID:
+            type: integer
+            nullable: false
+      allOf:
+        - $ref: '#/components/schemas/addressInfo'
+    addressInfo:
+      type: object
+      properties:
         street:
           type: string
           example: Duisburgerstraße
@@ -115,5 +101,6 @@ components:
           example: Düsseldorf
     addresses:
       type: array
-      format: address
+      allOf:
+        - $ref: '#/components/schemas/address'
       # todo: google how to use object address

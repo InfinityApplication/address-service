@@ -52,7 +52,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/addresses'
     delete:
-      description: Delete Address by ID
+      description: Delete Address by ADID
       parameters:
         - in: path
           name: ADID
@@ -62,6 +62,32 @@ paths:
       responses:
         200:
           description: Successfully deleted the Address
+    patch:
+      parameters:
+        - in: path
+          name: ADID
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: street
+          schema:
+            type: string
+        - in: query
+          name: houseNumber
+          schema:
+            type: string
+        - in: query
+          name: postCode
+          schema:
+            type: integer
+        - in: query
+          name: city
+          schema:
+            type: string
+      responses:
+        200:
+          description: "Successfully changed data of address with adid: {adid}"
 components:
   schemas:
     address:

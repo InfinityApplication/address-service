@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: AddressService API
+  description: This is the API of InfinityApp by jonnef [test](https://jonnef.github.io/InfinityApp/)
+  version: 1.0.0
+servers:
+  - url: http://infinityapp-api.com
+  - url: http://jonnef-api.com
+paths:
+  /address:
+    description: Person Resource
+    get:
+      description: Operation to Fetch Persons
+      parameters:
+        - in: query
+          name: username
+          required: true
+          schema:
+            type: string
+            example: jonnef
+      responses:
+        200:
+          description: Success!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/addresses'
+    post:
+      description: Add a new Person
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/address'
+      responses:
+        201:
+          description: Successfully added
+  /address{adid}:
+    description: Address methods with path parameter adid
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Success Response with Path Parameter
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/addresses'
+    delete:
+      description: Delete Address by ID
+      parameters:
+        - in: path
+          name: ADID
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successfully deleted the Address
+components:
+  schemas:
+    address:
+      type: object
+      properties:
+        ADID:
+          type: integer
+          nullable: false
+        street:
+          type: string
+          example: Duisburgerstraße
+        houseNumber:
+          type: string
+          example: 145
+        postCode:
+          type: integer
+          example: 40477
+        city:
+          type: string
+          example: Düsseldorf
+    addresses:
+      type: array
+      items:
+        properties:
+          ADID:
+            type: integer
+            nullable: false
+          street:
+            type: string
+            example: Duisburgerstraße
+          houseNumber:
+            type: string
+            example: 145
+          postCode:
+            type: integer
+            example: 40477
+          city:
+            type: string
+            example: Düsseldorf

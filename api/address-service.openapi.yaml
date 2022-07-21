@@ -50,6 +50,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/addresses'
+    patch:
+      tags:
+      - Address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addressInfo'
+      responses:
+        200:
+          description: "Successfully changed data of address with adid: {adid}"
     delete:
       tags:
       - Address
@@ -63,17 +74,6 @@ paths:
       responses:
         200:
           description: Successfully deleted the Address
-    patch:
-      tags:
-      - Address
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/addressInfo'
-      responses:
-        200:
-          description: "Successfully changed data of address with adid: {adid}"
 components:
   schemas:
     address:

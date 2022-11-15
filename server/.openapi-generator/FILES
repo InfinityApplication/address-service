@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/main/java/org/openapitools/OpenApiGeneratorApplication.java
+src/main/java/org/openapitools/RFC3339DateFormat.java
+src/main/java/org/openapitools/api/AddressApi.java
+src/main/java/org/openapitools/api/AddressApiController.java
+src/main/java/org/openapitools/api/ApiUtil.java
+src/main/java/org/openapitools/configuration/HomeController.java
+src/main/java/org/openapitools/configuration/SpringDocConfiguration.java
+src/main/java/org/openapitools/model/Address.java
+src/main/java/org/openapitools/model/AddressInfo.java
+src/main/java/org/openapitools/model/AddressesInner.java
+src/main/java/org/openapitools/model/Id.java
+src/main/resources/application.properties
+src/main/resources/openapi.yaml
+src/test/java/org/openapitools/OpenApiGeneratorApplicationTests.java

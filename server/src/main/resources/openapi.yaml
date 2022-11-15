@@ -1,0 +1,143 @@
+openapi: 3.0.3
+info:
+  description: This is the address-service API of InfinityApp by jonnef
+  title: AddressService API
+  version: 1.0.0
+servers:
+- url: http://infinityapp-api.com
+- url: http://jonnef-api.com
+paths:
+  /address:
+    description: Address Resource
+    get:
+      description: Get a list of addresses
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/addresses'
+          description: Success!
+      tags:
+      - address
+      x-accepts: application/json
+      x-tags:
+      - tag: address
+    post:
+      description: Add a new Person
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addressInfo'
+      responses:
+        "201":
+          description: Successfully added
+      tags:
+      - address
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: address
+  /address/{id}:
+    delete:
+      description: Delete Address by ADID
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Successfully deleted the Address
+      tags:
+      - address
+      x-accepts: application/json
+      x-tags:
+      - tag: address
+    description: Address methods with path parameter adid
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/addresses'
+          description: Success Response with Path Parameter
+      tags:
+      - address
+      x-accepts: application/json
+      x-tags:
+      - tag: address
+    patch:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addressInfo'
+      responses:
+        "200":
+          description: "Successfully changed data of address with adid: {adid}"
+      tags:
+      - address
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: address
+components:
+  schemas:
+    address:
+      allOf:
+      - $ref: '#/components/schemas/id'
+      - $ref: '#/components/schemas/addressInfo'
+      - type: object
+    addressInfo:
+      properties:
+        street:
+          example: Duisburgerstraße
+          type: string
+        houseNumber:
+          example: "145"
+          type: string
+        postCode:
+          example: 40477
+          type: integer
+        city:
+          example: Düsseldorf
+          type: string
+      type: object
+    addresses:
+      items:
+        $ref: '#/components/schemas/addresses_inner'
+      type: array
+    id:
+      properties:
+        id:
+          example: 0
+          nullable: false
+          type: integer
+      required:
+      - id
+    addresses_inner:
+      allOf:
+      - $ref: '#/components/schemas/id'
+      - $ref: '#/components/schemas/address'

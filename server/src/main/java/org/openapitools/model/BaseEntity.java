@@ -16,17 +16,17 @@ import java.util.*;
 import javax.annotation.Generated;
 
 /**
- * Id
+ * BaseEntity
  */
 
-@JsonTypeName("id")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-12T21:32:54.191+01:00[Europe/Berlin]")
-public class Id {
+@JsonTypeName("baseEntity")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-15T21:55:00.089+01:00[Europe/Berlin]")
+public class BaseEntity {
 
   @JsonProperty("id")
   private Integer id;
 
-  public Id id(Integer id) {
+  public BaseEntity id(Integer id) {
     this.id = id;
     return this;
   }
@@ -53,8 +53,8 @@ public class Id {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Id id = (Id) o;
-    return Objects.equals(this.id, id.id);
+    BaseEntity baseEntity = (BaseEntity) o;
+    return Objects.equals(this.id, baseEntity.id);
   }
 
   @Override
@@ -65,7 +65,7 @@ public class Id {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Id {\n");
+    sb.append("class BaseEntity {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("addressInfo")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-12T21:32:54.191+01:00[Europe/Berlin]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-15T21:55:00.089+01:00[Europe/Berlin]")
 public class AddressInfo {
 
   @JsonProperty("street")
@@ -34,6 +34,9 @@ public class AddressInfo {
 
   @JsonProperty("city")
   private String city;
+
+  @JsonProperty("state")
+  private String state;
 
   public AddressInfo street(String street) {
     this.street = street;
@@ -111,6 +114,25 @@ public class AddressInfo {
     this.city = city;
   }
 
+  public AddressInfo state(String state) {
+    this.state = state;
+    return this;
+  }
+
+  /**
+   * Get state
+   * @return state
+  */
+  
+  @Schema(name = "state", example = "North Rhine-Westphalia", required = false)
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -123,12 +145,13 @@ public class AddressInfo {
     return Objects.equals(this.street, addressInfo.street) &&
         Objects.equals(this.houseNumber, addressInfo.houseNumber) &&
         Objects.equals(this.postCode, addressInfo.postCode) &&
-        Objects.equals(this.city, addressInfo.city);
+        Objects.equals(this.city, addressInfo.city) &&
+        Objects.equals(this.state, addressInfo.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(street, houseNumber, postCode, city);
+    return Objects.hash(street, houseNumber, postCode, city, state);
   }
 
   @Override
@@ -139,6 +162,7 @@ public class AddressInfo {
     sb.append("    houseNumber: ").append(toIndentedString(houseNumber)).append("\n");
     sb.append("    postCode: ").append(toIndentedString(postCode)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
   }

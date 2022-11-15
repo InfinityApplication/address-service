@@ -7,12 +7,12 @@ servers:
   - url: http://infinityapp-api.com
   - url: http://jonnef-api.com
 paths:
-  /address:
+  /addresses:
     description: Address Resource
     get:
       tags:
-      - address
-      description: Get a list of addresses
+      - addresses
+      description: Get a list of all addresses
       responses:
         200:
           description: Success!
@@ -22,7 +22,7 @@ paths:
                 $ref: '#/components/schemas/addresses'
     post:
       tags:
-      - address
+      - addresses
       description: Add a new Person
       requestBody:
         content:
@@ -32,11 +32,11 @@ paths:
       responses:
         201:
           description: Successfully added
-  /address/{id}:
-    description: Address methods with path parameter adid
+  /addresses/{id}:
+    description: Address methods with path parameter id
     get:
       tags:
-      - address
+      - addresses
       parameters:
         - in: path
           name: id
@@ -49,10 +49,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/addresses'
+                $ref: '#/components/schemas/address'
     patch:
       tags:
-      - address
+      - addresses
       parameters:
         - in: path
           name: id
@@ -66,10 +66,10 @@ paths:
               $ref: '#/components/schemas/addressInfo'
       responses:
         200:
-          description: "Successfully changed data of address with adid: {adid}"
+          description: "Successfully changed data of address with id: {id}"
     delete:
       tags:
-      - address
+      - addresses
       description: Delete Address by ADID
       parameters:
         - in: path
@@ -83,10 +83,10 @@ paths:
 components:
   schemas:
     address:
+      type: object
       allOf:
-        - $ref: '#/components/schemas/id'
+        - $ref: '#/components/schemas/baseEntity'
         - $ref: '#/components/schemas/addressInfo'
-        - type: object
     addressInfo:
       type: object
       properties:
@@ -102,13 +102,15 @@ components:
         city:
           type: string
           example: Düsseldorf
+        state:
+          type: string
+          example: North Rhine-Westphalia
     addresses:
-      type: array
-      items:
-        allOf:
-        - $ref: '#/components/schemas/id'
-        - $ref: '#/components/schemas/address'
-    id:
+     type: array
+     items:
+       allOf:
+         - $ref: '#/components/schemas/address'
+    baseEntity:
       properties:
         id:
           type: integer

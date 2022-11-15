@@ -7,10 +7,10 @@ servers:
 - url: http://infinityapp-api.com
 - url: http://jonnef-api.com
 paths:
-  /address:
+  /addresses:
     description: Address Resource
     get:
-      description: Get a list of addresses
+      description: Get a list of all addresses
       responses:
         "200":
           content:
@@ -19,10 +19,10 @@ paths:
                 $ref: '#/components/schemas/addresses'
           description: Success!
       tags:
-      - address
+      - addresses
       x-accepts: application/json
       x-tags:
-      - tag: address
+      - tag: addresses
     post:
       description: Add a new Person
       requestBody:
@@ -34,12 +34,12 @@ paths:
         "201":
           description: Successfully added
       tags:
-      - address
+      - addresses
       x-content-type: application/json
       x-accepts: application/json
       x-tags:
-      - tag: address
-  /address/{id}:
+      - tag: addresses
+  /addresses/{id}:
     delete:
       description: Delete Address by ADID
       parameters:
@@ -54,11 +54,11 @@ paths:
         "200":
           description: Successfully deleted the Address
       tags:
-      - address
+      - addresses
       x-accepts: application/json
       x-tags:
-      - tag: address
-    description: Address methods with path parameter adid
+      - tag: addresses
+    description: Address methods with path parameter id
     get:
       parameters:
       - explode: false
@@ -73,13 +73,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/addresses'
+                $ref: '#/components/schemas/address'
           description: Success Response with Path Parameter
       tags:
-      - address
+      - addresses
       x-accepts: application/json
       x-tags:
-      - tag: address
+      - tag: addresses
     patch:
       parameters:
       - explode: false
@@ -96,20 +96,20 @@ paths:
               $ref: '#/components/schemas/addressInfo'
       responses:
         "200":
-          description: "Successfully changed data of address with adid: {adid}"
+          description: "Successfully changed data of address with id: {id}"
       tags:
-      - address
+      - addresses
       x-content-type: application/json
       x-accepts: application/json
       x-tags:
-      - tag: address
+      - tag: addresses
 components:
   schemas:
     address:
       allOf:
-      - $ref: '#/components/schemas/id'
+      - $ref: '#/components/schemas/baseEntity'
       - $ref: '#/components/schemas/addressInfo'
-      - type: object
+      type: object
     addressInfo:
       properties:
         street:
@@ -124,12 +124,15 @@ components:
         city:
           example: Düsseldorf
           type: string
+        state:
+          example: North Rhine-Westphalia
+          type: string
       type: object
     addresses:
       items:
         $ref: '#/components/schemas/addresses_inner'
       type: array
-    id:
+    baseEntity:
       properties:
         id:
           example: 0
@@ -139,5 +142,4 @@ components:
       - id
     addresses_inner:
       allOf:
-      - $ref: '#/components/schemas/id'
       - $ref: '#/components/schemas/address'

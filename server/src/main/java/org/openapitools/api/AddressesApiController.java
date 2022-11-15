@@ -19,25 +19,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.context.request.NativeWebRequest;
+import org.openapitools.api.*;
 
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-12T21:32:54.191+01:00[Europe/Berlin]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-15T21:55:00.089+01:00[Europe/Berlin]")
 @Controller
 @RequestMapping("${openapi.addressService.base-path:}")
-public class AddressApiController implements AddressApi {
+public class AddressesApiController implements AddressesApi {
 
     private final NativeWebRequest request;
 
     @Autowired
-    public AddressApiController(NativeWebRequest request) {
+    public AddressesApiController(NativeWebRequest request) {
         this.request = request;
     }
 
@@ -47,21 +44,20 @@ public class AddressApiController implements AddressApi {
     }
 
     @Override
-    public ResponseEntity<List<Address>> addressGet() {
-        int i = 0;
-        Address item1 = new Address();
-        Address item2 = new Address();
-        item1.setId(i=i+1);
-        item1.setCity("Gossersweiler-stein");
-        item1.setPostCode(76857);
-        item1.setStreet("Brandenburgische Strasse");
-        item1.setHouseNumber("50");
-        item2.setId(i=i+1);
-        item2.setCity("Gossersweiler-stein");
-        item2.setPostCode(76857);
-        item2.setStreet("Brandenburgische Strasse");
-        item2.setHouseNumber("50");
-    return ResponseEntity.ok(Arrays.asList(item1, item2));
-    }
+    public ResponseEntity<List<AddressesInner>> addressesGet() {
+        AddressesInner item1 = new AddressesInner();
+        item1.setState("Hamburg");
+        item1.setCity("Hamburg");
+        item1.setPostCode(22087);
+        item1.setStreet("Boxhagener Str.");
+        item1.setHouseNumber("7");
+        AddressesInner item2 = new AddressesInner();
+        item2.setState("Nordrhein-Westfalen");
+        item2.setCity("Gelsenkirchen");
+        item2.setPostCode(45896);
+        item2.setStreet("Friedrichstrasse");
+        item2.setHouseNumber("48");
 
+        return ResponseEntity.ok(Arrays.asList(item1, item2));
+    }
 }

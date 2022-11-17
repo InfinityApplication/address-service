@@ -1,28 +1,14 @@
 package org.openapitools.api;
 
 import org.openapitools.model.Address;
-import org.openapitools.model.AddressInfo;
-import org.openapitools.model.AddressesInner;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.context.request.NativeWebRequest;
-import org.openapitools.api.*;
 
-import javax.validation.constraints.*;
-import javax.validation.Valid;
 import java.util.*;
 import javax.annotation.Generated;
 
@@ -44,14 +30,14 @@ public class AddressesApiController implements AddressesApi {
     }
 
     @Override
-    public ResponseEntity<List<AddressesInner>> addressesGet() {
-        AddressesInner item1 = new AddressesInner();
+    public ResponseEntity<List<Address>> addressesGet() {
+        Address item1 = new Address();
         item1.setState("Hamburg");
         item1.setCity("Hamburg");
         item1.setPostCode(22087);
         item1.setStreet("Boxhagener Str.");
         item1.setHouseNumber("7");
-        AddressesInner item2 = new AddressesInner();
+        Address item2 = new Address();
         item2.setState("Nordrhein-Westfalen");
         item2.setCity("Gelsenkirchen");
         item2.setPostCode(45896);

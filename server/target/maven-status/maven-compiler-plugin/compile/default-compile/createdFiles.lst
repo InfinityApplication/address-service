@@ -1,11 +1,10 @@
 org\openapitools\model\BaseEntity.class
+org\openapitools\model\Address.class
+org\openapitools\api\AddressesApiController.class
 org\openapitools\OpenApiGeneratorApplication.class
+org\openapitools\api\ApiUtil.class
 org\openapitools\RFC3339DateFormat.class
+org\openapitools\configuration\SpringDocConfiguration.class
 org\openapitools\model\AddressInfo.class
 org\openapitools\api\AddressesApi.class
-org\openapitools\model\Address.class
-org\openapitools\model\AddressesInner.class
-org\openapitools\api\AddressesApiController.class
-org\openapitools\api\ApiUtil.class
-org\openapitools\configuration\SpringDocConfiguration.class
 org\openapitools\configuration\HomeController.class

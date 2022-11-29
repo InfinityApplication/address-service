@@ -1,25 +1,27 @@
 package org.openapitools.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
+import java.util.*;
 import javax.annotation.Generated;
 
 /**
- * Address
+ * AddressInfo
  */
 
-@JsonTypeName("address")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-29T21:54:44.884+01:00[Europe/Berlin]")
-public class Address {
-
-  @JsonProperty("id")
-  private Integer id;
+@JsonTypeName("addressInfo")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-29T22:42:23.098+01:00[Europe/Berlin]")
+public class AddressInfo {
 
   @JsonProperty("street")
   private String street;
@@ -36,26 +38,7 @@ public class Address {
   @JsonProperty("state")
   private String state;
 
-  public Address id(Integer id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-  */
-  @NotNull 
-  @Schema(name = "id", example = "0", required = true)
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public Address street(String street) {
+  public AddressInfo street(String street) {
     this.street = street;
     return this;
   }
@@ -74,7 +57,7 @@ public class Address {
     this.street = street;
   }
 
-  public Address houseNumber(String houseNumber) {
+  public AddressInfo houseNumber(String houseNumber) {
     this.houseNumber = houseNumber;
     return this;
   }
@@ -93,7 +76,7 @@ public class Address {
     this.houseNumber = houseNumber;
   }
 
-  public Address postCode(Integer postCode) {
+  public AddressInfo postCode(Integer postCode) {
     this.postCode = postCode;
     return this;
   }
@@ -112,7 +95,7 @@ public class Address {
     this.postCode = postCode;
   }
 
-  public Address city(String city) {
+  public AddressInfo city(String city) {
     this.city = city;
     return this;
   }
@@ -131,7 +114,7 @@ public class Address {
     this.city = city;
   }
 
-  public Address state(String state) {
+  public AddressInfo state(String state) {
     this.state = state;
     return this;
   }
@@ -158,25 +141,23 @@ public class Address {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Address address = (Address) o;
-    return Objects.equals(this.id, address.id) &&
-        Objects.equals(this.street, address.street) &&
-        Objects.equals(this.houseNumber, address.houseNumber) &&
-        Objects.equals(this.postCode, address.postCode) &&
-        Objects.equals(this.city, address.city) &&
-        Objects.equals(this.state, address.state);
+    AddressInfo addressInfo = (AddressInfo) o;
+    return Objects.equals(this.street, addressInfo.street) &&
+        Objects.equals(this.houseNumber, addressInfo.houseNumber) &&
+        Objects.equals(this.postCode, addressInfo.postCode) &&
+        Objects.equals(this.city, addressInfo.city) &&
+        Objects.equals(this.state, addressInfo.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, street, houseNumber, postCode, city, state);
+    return Objects.hash(street, houseNumber, postCode, city, state);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Address {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class AddressInfo {\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("    houseNumber: ").append(toIndentedString(houseNumber)).append("\n");
     sb.append("    postCode: ").append(toIndentedString(postCode)).append("\n");

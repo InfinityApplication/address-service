@@ -13,7 +13,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("addressInfo")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-15T21:55:00.089+01:00[Europe/Berlin]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-29T21:54:44.884+01:00[Europe/Berlin]")
 public class AddressInfo {
 
   @JsonProperty("street")

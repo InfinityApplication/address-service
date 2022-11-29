@@ -130,7 +130,7 @@ components:
       type: object
     addresses:
       items:
-        $ref: '#/components/schemas/addresses_inner'
+        $ref: '#/components/schemas/address'
       type: array
     baseEntity:
       properties:
@@ -140,6 +140,3 @@ components:
           type: integer
       required:
       - id
-    addresses_inner:
-      allOf:
-      - $ref: '#/components/schemas/address'

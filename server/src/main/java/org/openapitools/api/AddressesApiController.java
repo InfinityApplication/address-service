@@ -1,18 +1,18 @@
 package org.openapitools.api;
 
 import org.openapitools.model.Address;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.NativeWebRequest;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-15T21:55:00.089+01:00[Europe/Berlin]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-29T21:54:44.884+01:00[Europe/Berlin]")
 @Controller
 @RequestMapping("${openapi.addressService.base-path:}")
 public class AddressesApiController implements AddressesApi {
@@ -32,18 +32,9 @@ public class AddressesApiController implements AddressesApi {
     @Override
     public ResponseEntity<List<Address>> addressesGet() {
         Address item1 = new Address();
-        item1.setState("Hamburg");
-        item1.setCity("Hamburg");
-        item1.setPostCode(22087);
-        item1.setStreet("Boxhagener Str.");
-        item1.setHouseNumber("7");
-        Address item2 = new Address();
-        item2.setState("Nordrhein-Westfalen");
-        item2.setCity("Gelsenkirchen");
-        item2.setPostCode(45896);
-        item2.setStreet("Friedrichstrasse");
-        item2.setHouseNumber("48");
+        item1.setCity("Test");
 
-        return ResponseEntity.ok(Arrays.asList(item1, item2));
+        return ResponseEntity.ok(Arrays.asList(item1));
     }
+
 }

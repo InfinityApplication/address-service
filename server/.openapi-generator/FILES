@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 README.md
 pom.xml
 src/main/java/org/openapitools/OpenApiGeneratorApplication.java
@@ -9,7 +10,6 @@ src/main/java/org/openapitools/configuration/HomeController.java
 src/main/java/org/openapitools/configuration/SpringDocConfiguration.java
 src/main/java/org/openapitools/model/Address.java
 src/main/java/org/openapitools/model/AddressInfo.java
-src/main/java/org/openapitools/model/AddressesInner.java
 src/main/java/org/openapitools/model/BaseEntity.java
 src/main/resources/application.properties
 src/main/resources/openapi.yaml

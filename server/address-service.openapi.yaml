@@ -106,10 +106,8 @@ components:
           type: string
           example: North Rhine-Westphalia
     addresses:
-     type: array
-     items:
-       allOf:
-         - $ref: '#/components/schemas/address'
+      items:
+        $ref: '#/components/schemas/address'
     baseEntity:
       properties:
         id:
